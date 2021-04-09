@@ -39,7 +39,7 @@ namespace Beecow.Services
             return new UserViewModel { Username = customer.Fullname, Email = customer.Email, Phone = customer.Phone, Token = token };
         }
 
-        public async Task<UserViewModel> Register(CreateUserModel registerRequest)
+        public async Task<RegisterViewModel> Register(CreateUserModel registerRequest)
         {
             var register = customersDbContext.Customers.SingleOrDefault(customer => (customer.Email == registerRequest.Email || customer.Phone == registerRequest.Phone));
             if (register != null)
@@ -52,7 +52,7 @@ namespace Beecow.Services
             await customersDbContext.Customers.AddAsync(customer);
             await customersDbContext.SaveChangesAsync();
 
-            return _mapper.Map<UserViewModel>(customer);
+            return new RegisterViewModel { Fullname = customer.Fullname, Status = "200", Message = "Success" };
 
         }
     }

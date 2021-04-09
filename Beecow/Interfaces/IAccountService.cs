@@ -6,6 +6,6 @@ namespace Beecow.Interfaces
     public interface IAccountService
     {
         Task<UserViewModel> Login(LoginUserModel loginRequest);
-        Task<UserViewModel> Register(CreateUserModel registerRequest);
+        Task<RegisterViewModel> Register(CreateUserModel registerRequest);
     }
 }

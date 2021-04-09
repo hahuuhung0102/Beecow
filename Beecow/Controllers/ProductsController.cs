@@ -13,13 +13,13 @@ namespace Beecow.Controllers
     //[AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
-    public class OrdersController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly IOrderService orderService;
+        private readonly IProductService productService;
 
-        public OrdersController(IOrderService orderService)
+        public ProductsController(IProductService productService)
         {
-            this.orderService = orderService;
+            this.productService = productService;
         }
 
         [HttpGet()]
@@ -36,14 +36,14 @@ namespace Beecow.Controllers
                 return Unauthorized("Invalid customer");
             }
 
-            var orders = await orderService.GetOrdersByCustomerId(int.Parse(claim.Value));
+            var products = await productService.GetProductByCustomerId(int.Parse(claim.Value));
 
-            if (orders == null || !orders.Any())
+            if (products == null || !products.Any())
             {
-                return BadRequest($"No order was found");
+                return BadRequest($"No product was found");
             }
 
-            return Ok(orders);
+            return Ok(products);
         }
     }
 }

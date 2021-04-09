@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Beecow.Entities
 {
-    public class Order
+    public class Product
     {
         public int Id { get; set; }
         public string Status { get; set; }

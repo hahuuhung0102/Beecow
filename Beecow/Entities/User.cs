@@ -19,6 +19,6 @@ namespace Beecow.Entities
         public string Update_Date { get; set; }
         public string Create_Date { get; set; }
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

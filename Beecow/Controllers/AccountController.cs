@@ -44,7 +44,7 @@ namespace Beecow.Controllers
         {
             if (registerRequest == null || string.IsNullOrEmpty(registerRequest.Fullname) || string.IsNullOrEmpty(registerRequest.Password))
             {
-                return BadRequest("User exist");
+                return BadRequest($"User exists");
             }
 
             var registerResponse = await _accountService.Register(registerRequest);

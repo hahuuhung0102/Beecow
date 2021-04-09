@@ -65,7 +65,7 @@ namespace Beecow
             services.AddSingleton<IAuthorizationHandler, CustomerBlockedStatusHandler>();
 
             services.AddScoped<IAccountService, AccountService>();
-            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductService, ProductService>();
             services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
 
